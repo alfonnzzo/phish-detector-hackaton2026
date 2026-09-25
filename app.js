@@ -5,6 +5,7 @@ import './src/models/associations.js';
 import authRoutes from './src/routes/authRoutes.js';
 import institucionRoutes from './src/routes/institucionRoutes.js';
 import linkRoutes from './src/routes/linkRoutes.js';
+import { iniciarListas } from './src/helpers/listasAmenazas.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,6 +25,7 @@ const startServer = async () => {
     await connectDB();
     await sequelize.sync();
     app.listen(PORT, () => console.log(`Servidor escuchando en http://localhost:${PORT}`));
+    iniciarListas();
   } catch (error) {
     console.error('Error al iniciar el servidor:', error.message);
     process.exit(1);
