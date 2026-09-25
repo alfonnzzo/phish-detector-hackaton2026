@@ -43,6 +43,13 @@ export default function Inicio() {
       </View>
 
       <View style={styles.centro}>
+        <Text
+          style={[styles.titulo, { color: activa ? colores.acento : colores.apagado }]}
+          numberOfLines={1}
+          adjustsFontSizeToFit>
+          ANTIPHISHING
+        </Text>
+
         <View style={styles.boton}>
           <BotonProteccion activo={activa} deshabilitado={cargando} onCambiar={alternar} />
         </View>
@@ -128,6 +135,12 @@ const styles = StyleSheet.create({
     gap: 20,
     justifyContent: 'center',
     paddingHorizontal: 24,
+  },
+  titulo: {
+    fontSize: 42,
+    fontWeight: '900',
+    letterSpacing: 1,
+    marginBottom: 24,
   },
   boton: {
     marginBottom: 8,
