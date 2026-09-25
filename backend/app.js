@@ -5,6 +5,8 @@ import './src/models/associations.js';
 import authRoutes from './src/routes/authRoutes.js';
 import institucionRoutes from './src/routes/institucionRoutes.js';
 import linkRoutes from './src/routes/linkRoutes.js';
+import mensajeRoutes from './src/routes/mensajeRoutes.js';
+import reportadoRoutes from './src/routes/reportadoRoutes.js';
 import { iniciarListas } from './src/helpers/listasAmenazas.js';
 
 const TIEMPO_PASO_MS = 15000;
@@ -25,6 +27,8 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/instituciones', institucionRoutes);
 app.use('/api/links', linkRoutes);
+app.use('/api/mensajes', mensajeRoutes);
+app.use('/api/reportados', reportadoRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ error: 'Ruta no encontrada' });
