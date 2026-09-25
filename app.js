@@ -4,6 +4,7 @@ import { sequelize, connectDB } from './src/config/database.js';
 import './src/models/associations.js';
 import authRoutes from './src/routes/authRoutes.js';
 import institucionRoutes from './src/routes/institucionRoutes.js';
+import linkRoutes from './src/routes/linkRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,6 +17,7 @@ app.get('/api/health', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/instituciones', institucionRoutes);
+app.use('/api/links', linkRoutes);
 
 const startServer = async () => {
   try {
