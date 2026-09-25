@@ -43,11 +43,9 @@ export default function Inicio() {
       </View>
 
       <View style={styles.centro}>
-        <Text style={[styles.titulo, { color: activa ? colores.acento : colores.apagado }]}>
-          DISYUNTOR
-        </Text>
-
-        <Disyuntor activo={activa} deshabilitado={cargando} onCambiar={alternar} />
+        <View style={styles.boton}>
+          <Disyuntor activo={activa} deshabilitado={cargando} onCambiar={alternar} />
+        </View>
 
         <Text style={[styles.estado, { color: activa ? colores.acento : colores.textoSuave }]}>
           {activa ? 'Protegido' : 'Desprotegido'}
@@ -131,11 +129,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 24,
   },
-  titulo: {
-    fontSize: 44,
-    fontWeight: '900',
-    letterSpacing: 1,
-    marginBottom: 24,
+  boton: {
+    marginBottom: 8,
   },
   estado: {
     fontSize: 28,

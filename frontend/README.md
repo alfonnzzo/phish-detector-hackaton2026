@@ -1,6 +1,6 @@
 # Phish Detector - App
 
-App Expo (SDK 57 + expo-router) que funciona como un disyuntor: con la protección activada,
+App Expo (SDK 57 + expo-router) que funciona como un corte de seguridad: con la protección activada,
 cada link que llega a la app se revisa contra el backend (`POST /api/links/verificar`) y, si es
 peligroso o sospechoso, salta un aviso a pantalla completa con la explicación de la amenaza.
 
@@ -25,7 +25,7 @@ a `.env` y completar `EXPO_PUBLIC_API_URL`.
 
 ## Estructura
 
-- `app/index.tsx`: botón del disyuntor y estado de conexión con el servidor.
+- `app/index.tsx`: botón de protección y estado de conexión con el servidor.
 - `app/analizar.tsx`: revisa links que llegan desde otras apps.
 - `app/alerta.tsx`: aviso a pantalla completa.
 - `app/explicacion.tsx`: qué es la amenaza, qué pueden hacer, qué hacer si ya se abrió, recorrido de redirecciones y fuentes.

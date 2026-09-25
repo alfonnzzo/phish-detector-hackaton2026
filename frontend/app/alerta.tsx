@@ -76,7 +76,7 @@ export default function Alerta() {
         <Text style={styles.origen}>
           {aviso.origen === 'portapapeles'
             ? 'Lo detectamos en un link que copiaste.'
-            : 'El disyuntor cortó el link antes de que se abriera.'}
+            : 'Frenamos el link antes de que se abriera.'}
         </Text>
 
         <View style={[styles.tarjeta, { borderColor: color }]}>

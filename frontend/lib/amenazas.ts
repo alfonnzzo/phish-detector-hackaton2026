@@ -110,7 +110,7 @@ const SIN_VERIFICAR: InfoAmenaza = {
   titulo: 'No pudimos revisar este link',
   resumen: 'El servidor de verificación no respondió.',
   explicacion:
-    'No pudimos consultar si este link es peligroso. Eso no significa que sea seguro: el disyuntor corta por las dudas hasta que se pueda verificar.',
+    'No pudimos consultar si este link es peligroso. Eso no significa que sea seguro: por las dudas lo frenamos hasta que se pueda verificar.',
   riesgos: ['Si el link es malicioso, nada te va a advertir al abrirlo.'],
   siYaLoAbriste: [
     'No escribas datos personales ni bancarios.',
