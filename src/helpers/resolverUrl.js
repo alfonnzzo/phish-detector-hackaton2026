@@ -6,6 +6,7 @@ import net from 'node:net';
 const MAX_SALTOS = 5;
 const TIEMPO_TOTAL_MS = 4000;
 const PROTOCOLOS = ['http:', 'https:'];
+const METODO_NO_ACEPTADO = [405, 501];
 
 const redesInternas = new net.BlockList();
 redesInternas.addSubnet('0.0.0.0', 8);
@@ -35,11 +36,11 @@ const lookupSeguro = (hostname, opciones, callback) => {
   });
 };
 
-const pedirSalto = (url, senal) =>
+const pedirConMetodo = (url, senal, metodo) =>
   new Promise((resolve, reject) => {
     const cliente = url.protocol === 'https:' ? https : http;
     const pedido = cliente.request(url, {
-      method: 'HEAD',
+      method: metodo,
       lookup: lookupSeguro,
       signal: senal,
       headers: { 'User-Agent': 'Mozilla/5.0 (Linux; Android 14; Mobile)' },
@@ -50,6 +51,12 @@ const pedirSalto = (url, senal) =>
     pedido.on('error', reject);
     pedido.end();
   });
+
+const pedirSalto = async (url, senal) => {
+  const respuesta = await pedirConMetodo(url, senal, 'HEAD');
+  if (!METODO_NO_ACEPTADO.includes(respuesta.estado)) return respuesta;
+  return pedirConMetodo(url, senal, 'GET');
+};
 
 export const normalizarUrl = (entrada) => {
   try {
