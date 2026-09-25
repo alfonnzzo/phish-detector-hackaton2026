@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { AppState, Linking, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Disyuntor } from '@/components/Disyuntor';
+import { BotonProteccion } from '@/components/BotonProteccion';
 import { useProteccion } from '@/context/Proteccion';
 import { estadoServidor } from '@/lib/api';
 import { colores } from '@/lib/tema';
@@ -44,7 +44,7 @@ export default function Inicio() {
 
       <View style={styles.centro}>
         <View style={styles.boton}>
-          <Disyuntor activo={activa} deshabilitado={cargando} onCambiar={alternar} />
+          <BotonProteccion activo={activa} deshabilitado={cargando} onCambiar={alternar} />
         </View>
 
         <Text style={[styles.estado, { color: activa ? colores.acento : colores.textoSuave }]}>

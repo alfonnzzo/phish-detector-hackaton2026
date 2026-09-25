@@ -14,7 +14,7 @@ type Props = {
   onCambiar: () => void;
 };
 
-export function Disyuntor({ activo, deshabilitado, onCambiar }: Props) {
+export function BotonProteccion({ activo, deshabilitado, onCambiar }: Props) {
   const [progreso] = useState(() => new Animated.Value(activo ? 1 : 0));
 
   useEffect(() => {
